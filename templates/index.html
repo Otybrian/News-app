@@ -4,14 +4,14 @@
     {% block content %}
     <h1> {{ header }}</h1>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-4">
             <h3>News Sources</h3>
             {% for newsSource in newsSources %}
             <h4> {{ newsSource.name }}</h4>
             <p> {{ newsSource. url }}</p>
             {% endfor %}
         </div>
-        <div class='col-md-6'>
+        <div class='col-md-8'>
             <h3>Top News</h3>
             {% for top_news in top_news %}
             <h4>{{ top_news.title}}</h4>
@@ -23,8 +23,7 @@
             {% endfor %}
         </div>
     </div>
-    <div class="container" style="background-color: black;">
-
+    <div class="container-fluid" style="background-color: black;">
         <footer class="bg-dark text-center text-lg-start text-white">
             <div class="container p-4">
                 <div class="row mt-4">
