@@ -1,25 +1,26 @@
 {% extends 'base.html' %}
-
+<link rel="stylesheet" href="app/static/CSS/styles.css">
 <body>
     {% block content %}
-    <h1> {{ header }}</h1>
-    <div class="row" style="background-color:rgb(223, 219, 219)">
+    <div class="center"><h1> {{ header }}</h1></div>
+    <div class="row">
         <div class="col-sm-3">
             <h3>News Sources</h3>
             {% for top_news in top_news %} 
-            <h4><a href="{{ top_news.url}}">{{ top_news.source_name['name'] }}</a></h4>
+           <button style="background-color:rgb(223, 219, 219)"><h4><a href="{{ top_news.url}}">{{ top_news.source_name['name'] }}</a></h4></button> 
             {% endfor %}
         </div>
-        <div class='col-md-9'>
-            <h3>Top News</h3>
-            {% for top_news in top_news %}
-            <h4>{{ top_news.title}}</h4>
+        <div class='col-md-9' style="background-color:rgb(223, 219, 219)">
+            <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Top News</h3>
+           <div style="padding: 10px;"> {% for top_news in top_news %}
+            <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{ top_news.title}}</h4>
             <img src="{{ top_news.urlToImage}}" alt="" height="250px">
             <p>Author: {{ top_news.author}}</p>
             <p>{{ top_news.description}}</p>
-            <span>Published: {{ top_news.publishedAt}}</span>
-            <button type="menu" style="width: 100px; height: 30px"> <a href="{{ top_news.url}}">Read More</a></button>
-            {% endfor %}
+            <span>Published: {{ top_news.publishedAt}}</span><br>
+            <button type="menu" style="width: 100px; height: 30px; background-color: green;"> <a href="{{ top_news.url}}" style="text-decoration: none; color: white;
+                ">Read More</a></button>
+            {% endfor %} </div>
         </div>
     </div>
     <div class="container-fluid" style="background-color: black;" style="margin-top: 10px;">

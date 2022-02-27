@@ -19,7 +19,7 @@ def index():
 
 
     return render_template('index.html', title=title, header=header, top_news = top_news, our_sources=our_sources, news_source = news_source)
-
+    
 # @app.route('/sources.html')
 # def sources():
 
