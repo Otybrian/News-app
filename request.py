@@ -92,7 +92,7 @@ def display_results(news_sources_list):
         language = news_sources_item.get('language')
         country = news_sources_item.get('country')
 
-        if id:
+        if name:
 
             news_sources_object = News_sources (id, name, description, url, category, language, country)
             news_sources_results.append(news_sources_object)

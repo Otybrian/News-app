@@ -4,19 +4,18 @@
     {% block content %}
     <h1> {{ header }}</h1>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <h3>News Sources</h3>
-            {% for newsSource in newsSources %}
-            <h4> {{ newsSource.name }}</h4>
-            <p> {{ newsSource. url }}</p>
+            {% for top_news in top_news %} 
+            <h4><a href="{{ top_news.url}}">{{ top_news.source_name['name'] }}</a></h4>
             {% endfor %}
         </div>
-        <div class='col-md-8'>
+        <div class='col-md-9'>
             <h3>Top News</h3>
             {% for top_news in top_news %}
             <h4>{{ top_news.title}}</h4>
             <img src="{{ top_news.urlToImage}}" alt="" height="250px">
-            <span>{{ top_news.source_name['name']}}</span>
+            <span>{{ top_news.publishedAt}}</span>
             <p>{{ top_news.description}}</p>
             <p>{{ top_news.author}}</p>
             <button type="menu" style="width: 50px; height: 30px"> <a href="{{ top_news.url}}">Visit</a></button>

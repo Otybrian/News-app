@@ -12,13 +12,13 @@ def index():
     top_news = get_news('articles')
     print(top_news)
     our_sources = 'News Sources'
-    newsSource = get_news_sources('sources')
-    print(newsSource)
+    news_source = get_news_sources('sources')
+    print(news_source)
     
 
 
 
-    return render_template('index.html', title=title, header=header, top_news = top_news, ur_sources=our_sources, newsSource = newsSource)
+    return render_template('index.html', title=title, header=header, top_news = top_news, our_sources=our_sources, news_source = news_source)
 
 # @app.route('/sources.html')
 # def sources():
