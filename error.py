@@ -3,3 +3,5 @@ from app import app
 
 @app.errorhandler(404)
 def error_return():
+
+    return render_template('error.html')
