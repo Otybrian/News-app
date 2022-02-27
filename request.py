@@ -60,7 +60,7 @@ def process_results(news_list):
 
 
 
-def get_news_sources(bbc):
+def get_news_sources(sources):
 
 
 
@@ -71,9 +71,9 @@ def get_news_sources(bbc):
 
         news_sources_results = None
 
-        if get_news_sources_response['bbc']:
+        if get_news_sources_response['sources']:
 
-            news_sources_results_list = get_news_sources_response['bbc']
+            news_sources_results_list = get_news_sources_response['sources']
 
             news_sources_results = display_results(news_sources_results_list)
 
@@ -94,7 +94,7 @@ def display_results(news_sources_list):
 
         if id:
 
-            news_sources_object = News(id, name, description, url, category, language, country)
+            news_sources_object = News_sources (id, name, description, url, category, language, country)
             news_sources_results.append(news_sources_object)
 
         return news_sources_results

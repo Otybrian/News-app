@@ -11,19 +11,24 @@ def index():
     title= "Home - Welcome to the best news application online"
     top_news = get_news('articles')
     print(top_news)
+    our_sources = 'News Sources'
+    newsSource = get_news_sources('sources')
+    print(newsSource)
     
 
 
 
-    return render_template('index.html', title=title, header=header, top_news = top_news)
+    return render_template('index.html', title=title, header=header, top_news = top_news, ur_sources=our_sources, newsSource = newsSource)
 
-@app.route('/bbc')
-def bbc():
+# @app.route('/sources.html')
+# def sources():
 
 
+
+#     our_sources = 'News Sources'
+#     newsSource = get_news_sources('sources')
+#     print(newsSource)
+
+#     return  render_template('sources.html', our_sources=our_sources, newsSource = newsSource)
     
-    news_sources = get_news_sources('bbc')
-    print(news_sources)
-
-    return render_template('bbc.html',news_sources = news_sources)
 

@@ -15,10 +15,10 @@
         {% endfor %}
     </div>
     <div class="col-md-6">
-        <h3>BBC News</h3>
-        {% for news_sources in news_sources %}
-        <h4> {{ news_sources.id }}</h4>
-         <p> {{ news_sources. url }}</p>
+        <h3>News Sources</h3>
+        {% for newsSource in newsSources %}
+        <h4> {{ newsSource.name }}</h4>
+         <p> {{ newsSource. url }}</p>
         {% endfor %}
     </div>
 </div>

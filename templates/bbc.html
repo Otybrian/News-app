@@ -1,7 +1,0 @@
-{% extends 'base.html' %}
-{% block content %}
-{% for news_sources in news_source %}
-<a href = "{{ news_sources.url }}" target="_blank"></a>
-<p>{{ news_sources.description }}</p>
-{% endfor %}
-{% endblock %}
