@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4">
-                <center><h3>News Sources</h3></center>
+                <h3 style="margin-left: 50px;">News Sources</h3>
                 {% for top_news in top_news %}
                 <button style="background-color:rgb(223, 219, 219); width: 300px;">
                     <h4><a href="{{ top_news.url}}">{{ top_news.source_name['name'] }}</a></h4>
