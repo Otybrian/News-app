@@ -4,31 +4,31 @@
 <body>
     {% block content %}
     <div class="center">
-        <h1> {{ header }}</h1>
+        <center><h1> {{ header }}</h1></center>
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4">
-                <h3>News Sources</h3>
+                <center><h3>News Sources</h3></center>
                 {% for top_news in top_news %}
-                <button style="background-color:rgb(223, 219, 219)">
+                <button style="background-color:rgb(223, 219, 219); width: 300px;">
                     <h4><a href="{{ top_news.url}}">{{ top_news.source_name['name'] }}</a></h4>
                 </button>
                 {% endfor %}
             </div>
             <div class='col-md-8' style="background-color:rgb(223, 219, 219)">
-                <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Top News</h3>
+                <center><h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Trending Headlines</h3></center>
                 <div class="news" style="padding: 10px;"> {% for top_news in top_news %}
                     <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{
                         top_news.title}}</h4>
                     <center><img src="{{ top_news.urlToImage}}" alt="" height="350px"></center>
                     <p>Author: {{ top_news.author}}</p>
                     <p style="border: solid whitesmoke;">{{ top_news.description}}</p>
-                    <span>Published: {{ top_news.publishedAt}}</span><br>
-                    <span style="border-bottom:solid whitesmoke"><button type="menu"
-                            style="width: 100px; height: 30px; background-color: green;"> <a href="{{ top_news.url}}"
+                    <span><p>Published: {{ top_news.publishedAt}}</p></span>
+                    <button type="menu"
+                            style="width: 100px; height: 30px; background-color: green;margin-left: 150px;"> <a href="{{ top_news.url}}"
                                 style="text-decoration: none; color: white;
-                ">Read More</a></button></span>
+                ">Read More</a></button>
                     {% endfor %}
                 </div>
             </div>
