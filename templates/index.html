@@ -15,10 +15,10 @@
             {% for top_news in top_news %}
             <h4>{{ top_news.title}}</h4>
             <img src="{{ top_news.urlToImage}}" alt="" height="250px">
-            <span>{{ top_news.publishedAt}}</span>
+            <p>Author: {{ top_news.author}}</p>
             <p>{{ top_news.description}}</p>
-            <p>{{ top_news.author}}</p>
-            <button type="menu" style="width: 50px; height: 30px"> <a href="{{ top_news.url}}">Visit</a></button>
+            <span>Published: {{ top_news.publishedAt}}</span>
+            <button type="menu" style="width: 100px; height: 30px"> <a href="{{ top_news.url}}">Read More</a></button>
             {% endfor %}
         </div>
     </div>
