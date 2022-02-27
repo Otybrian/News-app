@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<body>
+    {% block content %}
+    <h1> {{ header }}</h1>
+    <div class="row">
+    <div class='col-md-6'>
+        <h3>Top News</h3>
+        {% for top_news in top_news %}
+<h4>{{ top_news.title}}</h4>
+<img src = "{{ top_news.urlToImage}}" alt="" height="250px">
+<span>{{ top_news.source_name['name']}}</span>
+<p>{{ top_news.description}}</p>
+<p>{{ top_news.author}}</p>
+<button type="menu" style="width: 50px; height: 30px"> <a href = "{{ top_news.url}}">Visit</a></button>
+        {% endfor %}
+    </div>
+    <div class="col-md-6">
+        <h3>BBC News</h3>
+        {% for news_sources in news_sources %}
+        <h4> {{ news_sources.id }}</h4>
+         <p> {{ news_sources. url }}</p>
+        {% endfor %}
+    </div>
+</div>
+    {% endblock %}
+</body>
+</html>
