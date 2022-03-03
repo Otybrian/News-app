@@ -1,0 +1,51 @@
+.body {
+    background-color: grey;
+
+}
+.body h2{
+    font-size: 35px;
+    font-weight: 500;
+    color: white;
+}
+.top_news{
+    border: solid white;
+    border-width: 4px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+.top_news h4 {
+    font-weight: 400;
+}
+.top_news p {
+    font-size: 20px;
+}
+.top_news span {
+    font-size: 25px;
+    background: grey;
+    color: white;
+}
+.top_news button {
+    background: black;
+    width: 250px;
+}
+.top_news button a {
+    color: whitesmoke;
+    font-weight: 700;
+    text-decoration: none;
+}
+.top_news img {
+    height: 200px;
+    width: 300px;
+}
+.news_sources button{
+    background: black;
+    border: none;
+    margin-top: 10px;
+    width: 300px;
+
+}
+.news_sources button a {
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+}

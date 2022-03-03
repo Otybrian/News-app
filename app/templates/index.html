@@ -1,135 +1,55 @@
-{% extends 'base.html' %}
-<link rel="stylesheet" href="/app/static/CSS/styles.css">
+{% extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> The hottest news around the globe </title>
+    {% endif %}
+</head>
 
 <body>
+    {% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/index.css')}}">
+    {% endblock %}
     {% block content %}
-    <div class="center">
-        <center>
-            <h1 style="font-weight: 900; font-size: 30px;"> {{ header }}</h1>
-        </center>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-4">
-                <h3 style="margin-left: 50px;">News Sources</h3>
-                {% for top_news in top_news %}
-                <button style="background-color:rgb(223, 219, 219); width: 300px;">
-                    <h4><a href="{{ top_news.url}}">{{ top_news.source_name['name'] }}</a></h4>
-                </button>
-                {% endfor %}
-            </div>
-            <div class='col-md-8' style="background-color:rgb(223, 219, 219)">
-                <center>
-                    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                     border-bottom: solid black;">Trending
-                        Headlines</h3>
-                </center>
-                <div class="news" style="padding: 10px; margin-bottom: 20px;"> {% for top_news in top_news %}
-                    <h4
-                        style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 900;">
-                        {{top_news.title}}</h4>
-                    <center><img src="{{ top_news.urlToImage}}" alt="" height="350px"></center>
-                    <p>Author: {{ top_news.author}}</p>
-                    <p style="border: solid whitesmoke;">{{ top_news.description}}</p>
-                    <div class="end" style="border-bottom: solid black;border-radius: 5px; border-width: 5px; padding-bottom: 25px;"><span>Published: {{ top_news.publishedAt}}</span>
-                    <button type="menu" style="width: 100px; height: 30px; background-color: green;margin-left: 150px;">
-                        <a href="{{ top_news.url}}" style="text-decoration: none; color: white;
-                                 ">Read More</a></button></div>
+    <div class="body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>News Sources</h2>
+                    {% for top_news in top_news %}
+                    <div class="news_sources">
+                        <button>
+                            <h4><a href="{{ top_news.url}}">{{ top_news.source_name['name'] }}</a></h4>
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-md-8">
+                    <h2>Trending News</h2>
+                    {% for top_news in top_news %}
+                    <div class='top_news'>
+                        <h4><span>Article:</span> {{ top_news.title}}</h4>
+                        <p><span>Author:</span>{{ top_news.author }}</p>
+                        <img src="{{top_news.urlToImage }}" alt="">
+                        <p><span>Description:</span> {{ top_news.description }}</p>
+                        <p><span>Date of Publication:</span> {{ top_news.publishedAt }}</p>
+                        <p><span>Read:</span> {{ top_news.content }}</p>
+                        <button>
+                            <h4><a href="{{ top_news.url}}">Read More</a></h4>
+                        </button>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="background-color: black;" style="margin-top: 10px;">
-        <footer class="bg-dark text-center text-lg-start text-white">
-            <div class="container p-4">
-                <div class="row mt-4">
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Learn More about Us</h5>
-
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i>News
-                                    Sources</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i>All
-                                    Sources</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i class="fas fa-user-edit fa-fw fa-sm me-2"></i>Our
-                                    Offices</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Top Stories</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-white"><i
-                                        class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Headlines</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i
-                                        class="fas fa-backspace fa-fw fa-sm me-2"></i>Sources</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i
-                                        class="far fa-file-alt fa-fw fa-sm me-2"></i>Sports</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i
-                                        class="far fa-file-alt fa-fw fa-sm me-2"></i>Entertainment</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Publishing house</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-white">Westlands</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">123 Street</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Nairobi</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i class="fas fa-briefcase fa-fw fa-sm me-2"></i>Any
-                                    piece of news to share with us?</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Write to us</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-white"><i class="fas fa-at fa-fw fa-sm me-2"></i>Report a
-                                    Scenario</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i
-                                        class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Work with us</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white"><i
-                                        class="fas fa-envelope fa-fw fa-sm me-2"></i>Education</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                © 2022 Copyright:
-                <a class="text-white" href="https://mdbootstrap.com/">Hot_News.com</a>
-        </footer>
-
-    </div>
-    {% endblock %}
+    {% endblock%}
 </body>
 
 </html>

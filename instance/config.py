@@ -1,0 +1,1 @@
+NEWS_API_KEY = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=96519c65e70642e695e6cd44b70f0d5e'
